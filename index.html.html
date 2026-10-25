@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLOUDY — Learn with Cloud</title>
+<style>
+:root{--cream:#fbf7ef;--purple:#4a205f;--lav:#f0e5f5;--ink:#302438;--muted:#786b7c;--line:#e6d9ea;--white:#fff;--shadow:0 10px 28px rgba(74,32,95,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1180px;margin:auto;padding:22px 24px 96px}.topbar{display:flex;align-items:center;gap:20px;justify-content:space-between;padding:8px 0 22px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;min-width:220px}.logo{width:44px;height:44px;border-radius:15px;background:var(--purple);display:grid;place-items:center;color:white;font-size:24px;box-shadow:0 6px 14px #4a205f24}.brandname{font-weight:900;letter-spacing:1.5px;color:var(--purple);font-size:22px}.tagline{font-size:11px;color:var(--muted);margin-top:3px}.nav{display:flex;gap:6px;align-items:center}.nav button,.mobile-nav button{background:transparent;color:var(--muted);padding:10px 13px;border-radius:11px;font-weight:650}.nav button.active,.nav button:hover{background:var(--lav);color:var(--purple)}.profile{border:1px solid var(--line);background:#fff;border-radius:50%;height:42px;width:42px;color:var(--purple);font-weight:800}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:center;padding:34px 0 24px}.eyebrow{font-size:12px;letter-spacing:1.5px;color:#8b6c98;font-weight:800}.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.06;letter-spacing:-1.7px;margin:12px 0}.hero h1 span{color:var(--purple)}.hero p{max-width:540px;color:var(--muted);line-height:1.65;margin:0 0 20px}.primary,.secondary{padding:12px 17px;border-radius:12px;font-weight:750}.primary{background:var(--purple);color:#fff;box-shadow:0 6px 14px #4a205f20}.secondary{background:#fff;color:var(--purple);border:1px solid var(--line);margin-left:8px}.cloud-art{justify-self:center;width:180px;height:160px;border-radius:42% 58% 55% 45%;background:var(--lav);display:grid;place-items:center;position:relative;color:var(--purple);font-size:88px}.spark{position:absolute;right:15px;top:13px;font-size:24px;color:#9c72ad}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 14px}.section-head h2{font-size:21px;margin:0}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.tool-card{min-height:145px;cursor:pointer;transition:transform .15s,border-color .15s}.tool-card:hover{transform:translateY(-3px);border-color:#c7acd2}.tool-icon{height:43px;width:43px;border-radius:13px;background:var(--lav);display:grid;place-items:center;font-size:22px;margin-bottom:14px}.tool-card h3{font-size:16px;margin:0 0 7px}.tool-card p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}.content{margin-top:25px}.panel{display:none}.panel.active{display:block}.split{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.chatbox{min-height:160px;display:flex;flex-direction:column;gap:12px}.message{padding:12px 14px;border-radius:14px;max-width:90%;line-height:1.5;font-size:14px}.bot{background:var(--lav);align-self:flex-start}.user{background:var(--purple);color:#fff;align-self:flex-end}.composer{display:flex;gap:8px;margin-top:12px}.composer input,.field,.composer textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;color:var(--ink);outline:none}.composer input:focus,.field:focus,textarea:focus{border-color:#b99ac8}.composer button{background:var(--purple);color:white;border-radius:12px;padding:0 17px}.note-form{display:grid;gap:10px;margin-bottom:16px}.note-form input,.note-form textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;color:var(--ink)}.note-form textarea{min-height:100px;resize:vertical}.notes-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.note{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}.note h3{margin:0 0 7px;font-size:16px}.note p{white-space:pre-wrap;color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 12px}.note-actions{display:flex;gap:8px}.smallbtn{padding:7px 10px;border-radius:9px;background:var(--lav);color:var(--purple);font-size:12px;font-weight:700}.smallbtn.danger{background:#fff0f0;color:#9c3030}.empty{padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:14px;grid-column:1/-1}.quiz-question{font-weight:800;font-size:18px;margin:0 0 14px}.answers{display:grid;gap:9px}.answer{padding:12px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;color:var(--ink)}.answer:hover{border-color:var(--purple)}.answer.correct{background:#e8f7ed;border-color:#8ccba0}.answer.wrong{background:#fff0f0;border-color:#e4a0a0}.muted{color:var(--muted)}.timer{font-size:52px;font-weight:850;color:var(--purple);letter-spacing:1px;margin:12px 0}.slide-workspace{display:grid;grid-template-columns:minmax(150px,.55fr) minmax(0,1.45fr);gap:16px}.slide-list{display:grid;gap:8px;align-content:start}.slide-thumb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:left;color:var(--ink);min-width:0}.slide-thumb.active{border:2px solid var(--purple);background:#f7f0fa}.slide-thumb strong{display:block;font-size:12px;color:var(--purple);margin-bottom:4px}.slide-thumb span{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}.slide-controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.slide-controls button{margin:0}.slide-status{font-size:12px;color:var(--muted);margin-top:10px}.slide-preview{min-height:240px;background:linear-gradient(135deg,#fff 55%,#f0e5f5);border:1px solid var(--line);border-radius:18px;padding:25px;display:flex;flex-direction:column;justify-content:center}.slide-preview h2{font-size:30px;color:var(--purple);margin:0 0 12px}.slide-preview p{color:var(--muted)}.bottom-note{margin-top:25px;background:#eee2f3;border-radius:16px;padding:18px;display:flex;gap:12px;align-items:center}.bottom-note strong{color:var(--purple)}.bottom-note p{margin:4px 0 0;font-size:13px;color:#5e4968}.mobile-nav{display:none}
+
+/* Interactive 3D Cloud buddy */
+.cloud-buddy-section{margin:34px 0 8px;padding:26px 18px 22px;text-align:center;border:1px solid var(--line);border-radius:24px;background:radial-gradient(ellipse at 50% 28%,#fff 0%,#f6edf9 58%,#eee1f3 100%);overflow:hidden;position:relative;isolation:isolate}
+.cloud-buddy-section:before,.cloud-buddy-section:after{content:"✦";position:absolute;color:#b99ac8;font-size:22px;animation:twinkle 2.8s ease-in-out infinite;z-index:-1}.cloud-buddy-section:before{left:15%;top:28%}.cloud-buddy-section:after{right:16%;top:18%;animation-delay:1s}
+.cloud-buddy-section h2{margin:0 0 7px;color:var(--purple);font-size:22px}.cloud-buddy-section>p{margin:0;color:var(--muted);font-size:13px}
+.cloud-stage{height:190px;display:grid;place-items:center;perspective:700px;position:relative}
+.cloud-buddy{position:relative;width:210px;height:140px;display:block;background:transparent;transform-style:preserve-3d;transition:transform .18s ease;outline:none;border-radius:50%;touch-action:manipulation}
+.cloud-buddy:focus-visible{outline:3px solid #a879bd;outline-offset:9px}
+.cloud-puff{position:absolute;display:block;background:linear-gradient(145deg,#fff 4%,#f9f5ff 38%,#d9c2e7 100%);box-shadow:inset -10px -12px 18px #8e6aa522,inset 8px 9px 14px #fff,0 14px 18px #4a205f24; border-radius:50%;transform:translateZ(var(--z,0px))}
+.cloud-puff.p1{width:100px;height:90px;left:12px;top:43px;--z:12px}.cloud-puff.p2{width:108px;height:108px;left:55px;top:18px;--z:26px}.cloud-puff.p3{width:91px;height:83px;left:111px;top:48px;--z:8px}.cloud-puff.p4{width:125px;height:53px;left:35px;top:78px;border-radius:45%;--z:35px;background:linear-gradient(180deg,#fff,#e5d4ef);box-shadow:inset -5px -8px 10px #8e6aa51c,0 14px 18px #4a205f20}
+.cloud-face{position:absolute;left:0;right:0;top:68px;z-index:4;font-size:21px;letter-spacing:13px;padding-left:13px;color:#4a205f;transform:translateZ(50px);pointer-events:none}
+.cloud-cheek{position:absolute;top:91px;width:14px;height:7px;background:#e9a8ca;border-radius:50%;z-index:4;transform:translateZ(48px);pointer-events:none}.cloud-cheek.left{left:64px}.cloud-cheek.right{right:63px}
+.cloud-buddy.bounce{animation:cloudPop .55s cubic-bezier(.2,.8,.3,1)}.cloud-buddy.bounce .cloud-face{content:""}
+.cloud-reaction{min-height:24px;margin:0 auto 12px;color:var(--purple);font-weight:750;font-size:14px}.cloud-hint{font-size:11px!important;color:#8b6c98!important}
+@keyframes cloudPop{0%,100%{transform:translateY(0) rotateX(0)}35%{transform:translateY(-22px) rotateX(12deg) rotateY(-8deg) scale(1.06)}65%{transform:translateY(4px) rotateX(-5deg) scale(.98)}}
+@keyframes twinkle{0%,100%{opacity:.45;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(18deg)}}
+@media(max-width:560px){.cloud-buddy-section{margin-top:24px;padding:22px 10px}.cloud-stage{height:175px}.cloud-buddy{transform:scale(.9)}}
+@media(prefers-reduced-motion:reduce){.cloud-buddy-section:before,.cloud-buddy-section:after{animation:none}.cloud-buddy,.cloud-puff{transition:none}.cloud-buddy.bounce{animation:none}}
+@media(max-width:850px){.nav{display:none}.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr .45fr}.cloud-art{width:125px;height:125px;font-size:62px}.brand{min-width:0}.split{grid-template-columns:1fr}}
+@media(max-width:560px){.app{padding:14px 14px 100px}.tagline{display:none}.brandname{font-size:19px}.hero{grid-template-columns:1fr;padding-top:28px}.cloud-art{display:none}.hero h1{font-size:38px}.grid{gap:10px}.card{padding:14px}.tool-card{min-height:135px}.notes-list{grid-template-columns:1fr}.section-head h2{font-size:19px}.mobile-nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:#fff;border-top:1px solid var(--line);padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:10}.mobile-nav button{font-size:11px;padding:7px 5px;display:flex;flex-direction:column;gap:3px;align-items:center}.mobile-nav span{font-size:17px}.bottom-note{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">☁</div><div><div class="brandname">CLOUDY</div><div class="tagline">Learn with Cloud, Make Yourself Proud!</div></div></div>
+  <nav class="nav" aria-label="Main navigation">
+    <button class="active" data-panel="home">Home</button><button data-panel="tutor">AI Tutor</button><button data-panel="notes">Notes</button><button data-panel="slides">Slides</button><button data-panel="quiz">Quiz</button>
+  </nav>
+  <button class="profile" title="Guest profile">G</button>
+</header>
+
+<section id="home" class="panel active">
+  <div class="hero">
+    <div><div class="eyebrow">YOUR AI STUDY PARTNER</div><h1>Hey there,<br><span>ready to learn?</span></h1><p>Ask questions, make notes and discover something new every day. Your ideas deserve a little cloud space.</p><button class="primary" data-go="tutor">✦ Meet Cloudy</button><button class="secondary" data-go="notes">My notes →</button></div>
+    <div class="cloud-art" aria-label="Cloud logo illustration">☁<span class="spark">✦</span></div>
+  </div>
+  <div class="section-head"><div><h2>Your Study Space</h2><p>Everything you need to learn, all in one place.</p></div></div>
+  <div class="grid">
+    <article class="card tool-card" data-go="tutor"><div class="tool-icon">✦</div><h3>Ask Cloudy AI</h3><p>Get simple explanations for tricky questions.</p></article>
+    <article class="card tool-card" data-go="notes"><div class="tool-icon">▤</div><h3>My Notes</h3><p>Create, edit and keep your study notes.</p></article>
+    <article class="card tool-card" data-go="slides"><div class="tool-icon">▧</div><h3>Slide Studio</h3><p>Draft a title and content for your slides.</p></article>
+    <article class="card tool-card" data-go="quiz"><div class="tool-icon">🧠</div><h3>Quiz Zone</h3><p>Try a quick question and check your answer.</p></article>
+  </div>
+  <div class="bottom-note"><div style="font-size:27px">🌱</div><div><strong>Little steps, big progress!</strong><p>Every study session brings you closer to your goals.</p></div></div>
+</section>
+
+<section id="tutor" class="panel content">
+  <div class="section-head"><div><h2>Ask Cloudy AI ✦</h2><p>Ask a question and get a demo response.</p></div></div>
+  <div class="card"><div id="chatbox" class="chatbox"><div class="message bot">Hi! I'm Cloudy ☁️ Ask me a study question. This starter version uses demo replies; real AI will be connected later.</div></div><form id="chat-form" class="composer"><input id="chat-input" placeholder="What do you want to understand?" autocomplete="off" required><button>Send</button></form><p class="muted" style="font-size:12px;margin-bottom:0">Demo only: this chat is not connected to an AI service yet.</p></div>
+</section>
+
+<section id="notes" class="panel content">
+  <div class="section-head"><div><h2>My Notes 📚</h2><p>Your notes are saved in this browser on this device.</p></div></div>
+  <div class="card"><form id="note-form" class="note-form"><input id="note-title" placeholder="Note title (e.g. Science — Friction)" required><textarea id="note-body" placeholder="Write your notes here..." required></textarea><div><button class="primary" id="save-note">Save note</button> <button class="secondary" type="button" id="cancel-edit" style="display:none">Cancel edit</button></div></form></div>
+  <div class="section-head"><div><h2>Saved notes</h2></div><span id="note-count" class="muted" style="font-size:13px">0 notes</span></div>
+  <div id="notes-list" class="notes-list"></div>
+</section>
+
+<section id="slides" class="panel content">
+  <div class="section-head"><div><h2>Slide Studio 🎞️</h2><p>Create a presentation with multiple slides. Your draft saves in this browser.</p></div><button class="primary" id="add-slide">＋ Add slide</button></div>
+  <div class="slide-workspace">
+    <div class="card"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px"><strong>📑 Your slides</strong><span id="slide-count" class="muted" style="font-size:12px">1 slide</span></div><div id="slide-list" class="slide-list"></div><div class="slide-controls"><button type="button" class="smallbtn" id="move-slide-up">↑ Move up</button><button type="button" class="smallbtn" id="move-slide-down">↓ Move down</button><button type="button" class="smallbtn danger" id="delete-slide">Delete</button></div></div>
+    <div><div class="card"><form id="slide-form" class="note-form"><label for="slide-title">Slide title</label><input id="slide-title" placeholder="e.g. The Water Cycle" required><label for="slide-text">Slide content</label><textarea id="slide-text" placeholder="Write a few points about your topic..." required></textarea><button class="primary">Save slide changes</button></form><p id="slide-status" class="slide-status" aria-live="polite">Changes are saved on this device.</p></div><div id="slide-preview" class="slide-preview" style="margin-top:16px"><h2 id="preview-title">Welcome to my presentation</h2><p id="preview-text">Add a slide or edit this one to get started.</p><div style="margin-top:25px;color:#8b6c98;font-size:12px;font-weight:800">CLOUDY • SLIDE STUDIO <span id="preview-number"></span></div></div><div class="slide-controls"><button type="button" class="secondary" id="prev-slide">← Previous</button><button type="button" class="primary" id="next-slide">Next slide →</button></div></div>
+  </div>
+  <p class="muted" style="font-size:12px;margin-top:12px">Note: slides are saved in this browser on this device. PowerPoint/PDF export and cloud sync are not included yet.</p>
+</section>
+
+<section id="quiz" class="panel content">
+  <div class="section-head"><div><h2>Quiz Zone 🧠</h2><p>One quick science question to get started.</p></div></div>
+  <div class="card"><p class="muted" style="font-size:12px">QUESTION 1 OF 1</p><p class="quiz-question">Which organelle releases energy from food in a cell?</p><div class="answers" id="answers"><button class="answer" data-correct="false">Nucleus</button><button class="answer" data-correct="true">Mitochondria</button><button class="answer" data-correct="false">Cell wall</button><button class="answer" data-correct="false">Vacuole</button></div><p id="quiz-feedback" aria-live="polite" class="muted"></p><button class="secondary" id="reset-quiz">Try again</button></div>
+  <div class="section-head"><div><h2>Focus Timer ⏱️</h2><p>A simple 25-minute study timer.</p></div></div>
+  <div class="card" style="text-align:center"><div id="timer" class="timer">25:00</div><button class="primary" id="timer-start">Start</button> <button class="secondary" id="timer-reset">Reset</button><p id="timer-status" class="muted" style="font-size:13px">Ready when you are.</p></div>
+</section>
+
+<section class="cloud-buddy-section" aria-labelledby="cloud-buddy-title">
+  <h2 id="cloud-buddy-title">Say hi to Cloudy ☁️</h2>
+  <p>Your tiny 3D study buddy is waiting for a tap.</p>
+  <div class="cloud-stage">
+    <button class="cloud-buddy" id="cloud-buddy" type="button" aria-label="Tap the 3D cloud buddy for a reaction" title="Tap me!">
+      <span class="cloud-puff p1"></span><span class="cloud-puff p2"></span><span class="cloud-puff p3"></span><span class="cloud-puff p4"></span>
+      <span class="cloud-cheek left"></span><span class="cloud-cheek right"></span><span class="cloud-face" id="cloud-face" aria-hidden="true">• •</span>
+    </button>
+  </div>
+  <p class="cloud-reaction" id="cloud-reaction" aria-live="polite">Psst… tap the cloud! ✨</p>
+  <p class="cloud-hint">Move your mouse over me, or tap on mobile.</p>
+</section>
+<footer style="text-align:center;padding:22px 0 4px;color:var(--muted);font-size:12px">Made with ☁️ and curiosity · CLOUDY</footer>
+</div>
+<nav class="mobile-nav" aria-label="Mobile navigation"><button data-panel="home"><span>⌂</span>Home</button><button data-panel="tutor"><span>✦</span>Ask</button><button data-panel="notes"><span>▤</span>Notes</button><button data-panel="slides"><span>▧</span>Slides</button><button data-panel="quiz"><span>🧠</span>Quiz</button></nav>
+<script>
+
+// Playful interactive 3D cloud buddy at the bottom of the page
+const cloudBuddy=document.getElementById('cloud-buddy');
+const cloudReaction=document.getElementById('cloud-reaction');
+const cloudFace=document.getElementById('cloud-face');
+const cloudMoods=[
+  {face:'• •',message:'Yay! You found me! ☁️✨'},
+  {face:'^ ^',message:'You made my day brighter! 🌈'},
+  {face:'♥ ♥',message:'Sending you cloud-sized good vibes! 💜'},
+  {face:'★ ★',message:'Super learner mode: ON! ⭐'},
+  {face:'◕ ◕',message:'Boop! Ready for another study session? 📚'}
+];
+let cloudMood=0;
+cloudBuddy.addEventListener('click',()=>{
+  cloudMood=(cloudMood+1)%cloudMoods.length;
+  cloudFace.textContent=cloudMoods[cloudMood].face;
+  cloudReaction.textContent=cloudMoods[cloudMood].message;
+  cloudBuddy.classList.remove('bounce');
+  void cloudBuddy.offsetWidth;
+  cloudBuddy.classList.add('bounce');
+});
+cloudBuddy.addEventListener('animationend',()=>cloudBuddy.classList.remove('bounce'));
+cloudBuddy.addEventListener('pointermove',e=>{
+  if(e.pointerType==='touch')return;
+  const r=cloudBuddy.getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width-.5;
+  const y=(e.clientY-r.top)/r.height-.5;
+  cloudBuddy.style.transform=`rotateY(${x*22}deg) rotateX(${-y*18}deg)`;
+});
+cloudBuddy.addEventListener('pointerleave',()=>{cloudBuddy.style.transform='rotateY(0deg) rotateX(0deg)';});
+
+const panels=[...document.querySelectorAll('.panel')];
+function showPanel(id){panels.forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('[data-panel]').forEach(b=>b.classList.toggle('active',b.dataset.panel===id));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('[data-panel]').forEach(b=>b.addEventListener('click',()=>showPanel(b.dataset.panel)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showPanel(b.dataset.go)));
+
+const chatbox=document.getElementById('chatbox');
+document.getElementById('chat-form').addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('chat-input');const q=input.value.trim();if(!q)return;const u=document.createElement('div');u.className='message user';u.textContent=q;chatbox.appendChild(u);const a=document.createElement('div');a.className='message bot';a.textContent='This is a starter demo, so I cannot generate a real AI answer yet. Next, we can connect Cloudy to an AI API. For now, try breaking your question into small parts and note what you already know.';chatbox.appendChild(a);input.value='';chatbox.scrollTop=chatbox.scrollHeight;});
+
+let notes=JSON.parse(localStorage.getItem('cloudyNotes')||'[]'),editingId=null;
+const noteForm=document.getElementById('note-form'),noteTitle=document.getElementById('note-title'),noteBody=document.getElementById('note-body');
+function saveNotes(){localStorage.setItem('cloudyNotes',JSON.stringify(notes));renderNotes();}
+function renderNotes(){const list=document.getElementById('notes-list');list.innerHTML='';document.getElementById('note-count').textContent=notes.length+' note'+(notes.length===1?'':'s');if(!notes.length){list.innerHTML='<div class="empty">No notes yet. Create your first note above ✨</div>';return;}notes.forEach(n=>{const card=document.createElement('article');card.className='note';const h=document.createElement('h3');h.textContent=n.title;const p=document.createElement('p');p.textContent=n.body;const actions=document.createElement('div');actions.className='note-actions';const edit=document.createElement('button');edit.className='smallbtn';edit.textContent='Edit';edit.onclick=()=>{editingId=n.id;noteTitle.value=n.title;noteBody.value=n.body;document.getElementById('save-note').textContent='Update note';document.getElementById('cancel-edit').style.display='inline-block';noteTitle.focus();window.scrollTo({top:0,behavior:'smooth'});};const del=document.createElement('button');del.className='smallbtn danger';del.textContent='Delete';del.onclick=()=>{if(confirm('Delete this note?')){notes=notes.filter(x=>x.id!==n.id);saveNotes();}};actions.append(edit,del);card.append(h,p,actions);list.appendChild(card);});}
+noteForm.addEventListener('submit',e=>{e.preventDefault();const title=noteTitle.value.trim(),body=noteBody.value.trim();if(!title||!body)return;if(editingId!==null){notes=notes.map(n=>n.id===editingId?{...n,title,body}:n);}else{notes.unshift({id:Date.now(),title,body});}editingId=null;noteForm.reset();document.getElementById('save-note').textContent='Save note';document.getElementById('cancel-edit').style.display='none';saveNotes();});
+document.getElementById('cancel-edit').addEventListener('click',()=>{editingId=null;noteForm.reset();document.getElementById('save-note').textContent='Save note';document.getElementById('cancel-edit').style.display='none';});
+renderNotes();
+
+let slides=JSON.parse(localStorage.getItem('cloudySlides')||'null');
+if(!Array.isArray(slides)||!slides.length)slides=[{id:Date.now(),title:'Welcome to my presentation',body:'Add your key points here.\nYou can create more slides with the Add slide button.'}];
+let activeSlide=0;
+const slideTitle=document.getElementById('slide-title'),slideText=document.getElementById('slide-text');
+function saveSlideData(){localStorage.setItem('cloudySlides',JSON.stringify(slides));}
+function renderSlide(){
+  if(activeSlide<0)activeSlide=0;if(activeSlide>=slides.length)activeSlide=slides.length-1;
+  const s=slides[activeSlide];slideTitle.value=s.title;slideText.value=s.body;
+  document.getElementById('preview-title').textContent=s.title||'Untitled slide';
+  document.getElementById('preview-text').textContent=s.body||'Add your content here.';
+  document.getElementById('preview-number').textContent=' • '+(activeSlide+1)+' / '+slides.length;
+  document.getElementById('slide-count').textContent=slides.length+' slide'+(slides.length===1?'':'s');
+  const list=document.getElementById('slide-list');list.innerHTML='';
+  slides.forEach((slide,i)=>{const b=document.createElement('button');b.type='button';b.className='slide-thumb'+(i===activeSlide?' active':'');const strong=document.createElement('strong');strong.textContent='SLIDE '+(i+1);const span=document.createElement('span');span.textContent=slide.title||'Untitled slide';b.append(strong,span);b.addEventListener('click',()=>{saveCurrentSlide(false);activeSlide=i;renderSlide();});list.appendChild(b);});
+  document.getElementById('prev-slide').disabled=activeSlide===0;document.getElementById('next-slide').disabled=activeSlide===slides.length-1;
+  document.getElementById('move-slide-up').disabled=activeSlide===0;document.getElementById('move-slide-down').disabled=activeSlide===slides.length-1;
+}
+function saveCurrentSlide(showMessage=true){const t=slideTitle.value.trim(),b=slideText.value.trim();if(!t&&!b)return;slides[activeSlide]={...slides[activeSlide],title:t||'Untitled slide',body:b};saveSlideData();renderSlide();if(showMessage)document.getElementById('slide-status').textContent='Slide saved on this device ✓';}
+document.getElementById('slide-form').addEventListener('submit',e=>{e.preventDefault();saveCurrentSlide(true);});
+document.getElementById('add-slide').addEventListener('click',()=>{saveCurrentSlide(false);slides.push({id:Date.now(),title:'New slide',body:'Write your points here...'});activeSlide=slides.length-1;saveSlideData();renderSlide();slideTitle.focus();document.getElementById('slide-status').textContent='New slide added. Edit it and press Save slide changes.';});
+document.getElementById('delete-slide').addEventListener('click',()=>{if(slides.length===1){alert('Keep at least one slide in your presentation.');return;}if(confirm('Delete this slide?')){slides.splice(activeSlide,1);activeSlide=Math.min(activeSlide,slides.length-1);saveSlideData();renderSlide();document.getElementById('slide-status').textContent='Slide deleted.';}});
+document.getElementById('move-slide-up').addEventListener('click',()=>{if(activeSlide>0){saveCurrentSlide(false);[slides[activeSlide-1],slides[activeSlide]]=[slides[activeSlide],slides[activeSlide-1]];activeSlide--;saveSlideData();renderSlide();}});
+document.getElementById('move-slide-down').addEventListener('click',()=>{if(activeSlide<slides.length-1){saveCurrentSlide(false);[slides[activeSlide+1],slides[activeSlide]]=[slides[activeSlide],slides[activeSlide+1]];activeSlide++;saveSlideData();renderSlide();}});
+document.getElementById('prev-slide').addEventListener('click',()=>{saveCurrentSlide(false);if(activeSlide>0)activeSlide--;renderSlide();});
+document.getElementById('next-slide').addEventListener('click',()=>{saveCurrentSlide(false);if(activeSlide<slides.length-1)activeSlide++;renderSlide();});
+renderSlide();
+document.querySelectorAll('.answer').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.answer').forEach(x=>{x.disabled=true;if(x.dataset.correct==='true')x.classList.add('correct');});if(b.dataset.correct!=='true')b.classList.add('wrong');document.getElementById('quiz-feedback').textContent=b.dataset.correct==='true'?'Correct! Mitochondria release usable energy for the cell. 🎉':'Not quite. The correct answer is Mitochondria.';}));
+document.getElementById('reset-quiz').addEventListener('click',()=>{document.querySelectorAll('.answer').forEach(x=>{x.disabled=false;x.classList.remove('correct','wrong');});document.getElementById('quiz-feedback').textContent='';});
+let seconds=1500,interval=null;const timerEl=document.getElementById('timer');function paintTimer(){timerEl.textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');}
+document.getElementById('timer-start').addEventListener('click',()=>{if(interval){clearInterval(interval);interval=null;document.getElementById('timer-start').textContent='Resume';document.getElementById('timer-status').textContent='Paused.';return;}if(seconds===0)return;interval=setInterval(()=>{seconds--;paintTimer();if(seconds<=0){clearInterval(interval);interval=null;document.getElementById('timer-start').textContent='Start';document.getElementById('timer-status').textContent='Focus session complete! Take a short break. 🎉';}},1000);document.getElementById('timer-start').textContent='Pause';document.getElementById('timer-status').textContent='Focus mode on. You’ve got this!';});
+document.getElementById('timer-reset').addEventListener('click',()=>{clearInterval(interval);interval=null;seconds=1500;paintTimer();document.getElementById('timer-start').textContent='Start';document.getElementById('timer-status').textContent='Ready when you are.';});
+</script>
+</body>
+</html>
